@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #303741;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 29px rgba(178, 61, 61, 0.2);
+    background: #78a1ef;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #edf8f8;
+}
+
+.chat {
+    height: 400px;
+    overflow-y: auto;
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid #3c3b39;
+    border-radius: 5px;
+    background: #7f90ad;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+.user {
+    justify-content: flex-end;
+}
+
+.bot {
+    justify-content: flex-start;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-size: cover;
+}
+
+.user .avatar {
+    order: 2;
+    background: url("{{ url_for('static', filename='images/avatar.jpg') }}") no-repeat center center;
+}
+
+.bot .avatar {
+    order: 1;
+    background: url("{{ url_for('static', filename='images/bot.jpg') }}") no-repeat center center;
+}
+
+.text {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    line-height: 1.4;
+}
+
+.user .text {
+    background: #4a4d52;
+    text-align: right;
+}
+
+.bot .text {
+    background: #8c8c8e;
+}
+
+.input-box {
+    display: flex;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+    padding: 10px;
+}
+
+.input-box input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+.input-box button {
+    padding: 10px;
+    border: none;
+    background-color: #f40b0b;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.input-box button i {
+    font-size: 1.5rem;
+}
+
+.chat::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chat::-webkit-scrollbar-thumb {
+    background: #bcbdc0;
+    border-radius: 10px;
+}
