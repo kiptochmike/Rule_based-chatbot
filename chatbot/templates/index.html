@@ -7,17 +7,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>Tread Setters Chatbot</h1>
-        </div>
-        <div class="chat-box" id="chat-box">
-            <div class="chat-message bot-message">
-                Welcome to the Sales Chatbot! Type an item description or size to get details.
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <img src="/static/images/bot2.jpg" alt="Chatbot Logo" class="chatbot-logo">
+                <h1>Tread Setters Chatbot</h1>
+                <h2 class="sub-title">AI-powered sales rep</h2>
+                <button id="refresh-button" class="refresh-button">Refresh</button>
             </div>
+            <div class="chat-box" id="chat-box">
+                <div class="chat-message bot-message">
+                    Welcome to the Sales Chatbot! Type an item description or size to get details.
+                </div>
+            </div>
+            <input type="text" id="user-input" placeholder="Enter item description or size">
+            <button id="send-button">Send</button>
         </div>
-        <input type="text" id="user-input" placeholder="Enter item description or size">
-        <button id="send-button">Send</button>
+        <div class="promo-container">
+            <img src="{{ url_for('static', filename='images/bot3.jpg') }}" alt="Chatbot Logo" class="promo-image">
+            <h2 id="promo-text" class="promo-text">Speak with our chatbot today!</h2>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

@@ -4,27 +4,38 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/static/images/image2.JPG');
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-image: url('/static/images/image5.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 80%;
+    max-width: 1200px;
+    gap: 20px;
+}
+
 .chat-container {
-    width: 400px;
+    width: 60%;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
-    opacity: 0.9; /* Optional: make the chat container slightly transparent */
+    opacity: 0.9; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .chat-header {
-    background-color: #0c54e4;
+    background-color: #02101b;
     color: #fff;
     padding: 10px;
     text-align: center;
+    position: relative; 
 }
 
 .chat-header h1 {
@@ -32,51 +43,132 @@ body {
     font-size: 20px;
 }
 
+.chat-header .sub-title {
+    margin: 5px 0 0;
+    font-size: 14px;
+    font-weight: normal;
+    color: #d1e0ff; /* Light color to complement the main header */
+}
+
+.refresh-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #a20505ea;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.refresh-button:hover {
+    background-color: #085f41;
+}
+
 .chat-box {
     height: 300px;
     padding: 10px;
     border-bottom: 1px solid #ccc;
     overflow-y: auto;
+    background-color: #f9f9f9; 
 }
 
 .chat-message {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
+    max-width: 80%; 
+    word-wrap: break-word; 
 }
 
 .bot-message {
     background-color: #e1ffc7;
     text-align: left;
 }
+.chatbot-logo {
+    width: 45px; 
+    height: 45px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+}
 
 .user-message {
     background-color: #d1e0ff;
     text-align: right;
+    margin-left: auto; 
 }
 
 input[type="text"] {
     width: calc(100% - 90px);
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 0 0 0 5px;
+    border-radius: 5px 0 0 5px; 
+    box-sizing: border-box;
 }
 
 button {
     width: 90px;
     padding: 10px;
     border: none;
-    border-radius: 0 0 5px 0;
-    background-color: #007bff;
+    border-radius: 0 5px 5px 0; 
+    background-color: hsl(0, 92%, 37%);
     color: #fff;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: hsl(136, 88%, 22%);
 }
 
-.timestamp {
-    font-size: 0.8em;
-    color: #888;
+.promo-container {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 300px;
 }
+
+.promo-image {
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 30px;
+}
+
+.promo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: hwb(180 94% 4%);
+}
+
+/* Keyframes for typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+    0% { border-right: 2px solid transparent; }
+    100% { border-right: 2px solid black; }
+}
+
+.typing-effect {
+    display: inline-block;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black; 
+    animation: typing 2s steps(30, end), blink 0.75s step-end infinite;
+}
+

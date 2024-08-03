@@ -20,8 +20,17 @@ def search():
     if not item_description:
         return jsonify({'error': 'No search term provided'})
 
-    # Search for all rows that contain the item description or size
-    item_rows = df[df['Item Description'].str.contains(item_description, case=False, na=False)]
+    # Normalize the search term
+    normalized_search_term = item_description.strip().lower()
+    search_parts = normalized_search_term.split()
+
+    # Function to check if description matches the search term
+    def matches_search_term(description):
+        normalized_description = description.strip().lower()
+        return all(part in normalized_description for part in search_parts)
+
+    # Applying the search function to each row
+    item_rows = df[df['Item Description'].apply(matches_search_term)]
     
     if not item_rows.empty:
         results = []
